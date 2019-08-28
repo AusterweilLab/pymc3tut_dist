@@ -41,12 +41,13 @@ for ip,pid in enumerate(data_all.keys()):
     # Add title
     ax.set_title(pid) 
 
-# Specify number of participants and number of models
+## Build models
+# First, specify number of participants and number of models
 n_ppt = len(data)
 n_models = 3
 gmm_all = [pm.Model() for i in range(n_models)]
 
-## Build models
+# Loop over each k-model and construct
 for mi in range(n_models):
     print(f'Building Gaussian mixture model with {mi + 1} component(s).')
     gmm_all[mi].name = f'{mi + 1}-Group'  # Name each model for easy identification during comparison
