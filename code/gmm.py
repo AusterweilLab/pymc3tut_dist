@@ -59,13 +59,15 @@ with gmm:
 
 # Plot results
 pm.traceplot(trace, 
-             varnames=['mu','p','sigma'], # Specify which variables to plot
-             lines={'mu':mus,'p':ps,'sigma':sigmas}) # Plots straight lines - useful for simulations
+             var_names=['mu','p','sigma'], # Specify which variables to plot
+             lines=[('mu',{},mus),('p',{},ps),('sigma',{},sigmas)],  # Plots straight lines - useful for simulations
+             compact=True #Don't split up variable plots by group
+)
 plt.show()
 
 ## Posterior Predictive Checks  
 # Obtain posterior samples
-pp = pm.sample_ppc(model=gmm, trace=trace)
+pp = pm.sample_posterior_predictive(model=gmm, trace=trace)
 # Plot original data
 plt.hist(y, bins=20, alpha=0.5)
 # Plot posterior predictives on top of that 
