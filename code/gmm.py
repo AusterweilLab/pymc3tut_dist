@@ -53,7 +53,7 @@ with gmm:
 
     # Start the sampler!
     trace = pm.sample(draws=2000,
-                      nchains=4,
+                      chains=4,
                       step=[step1, step2],
                       random_seed=seed) 
 

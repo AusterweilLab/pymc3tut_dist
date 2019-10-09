@@ -65,7 +65,7 @@ for ki in K_range:
             
         # Start the sampler, and save results in a new element of trace_list
         trace_list += [pm.sample(draws=draws,       
-                                 nchains=nchains,
+                                 chains=nchains,
                                  step=steps,
                                  random_seed=seed)]
     
