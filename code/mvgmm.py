@@ -87,5 +87,5 @@ with pm.Model() as mvgmm:
     trace = pm.sample(draws, step=pm.NUTS(), chains=4)
     
 ## Plot traces
-pm.traceplot(trace, varnames=['p', 'mu_0','mu_1','mu_2','tau_0','tau_1','tau_2','sigma_0','sigma_1','sigma_2'])
+pm.traceplot(trace, var_names=['p', 'mu_0','mu_1','mu_2','tau_0','tau_1','tau_2','sigma_0','sigma_1','sigma_2'])
 plt.show()
